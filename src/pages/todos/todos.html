@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-	<ion-card *ngFor="let item of items | async" (tap)="navigateToDetail(item.id)">
+	<ion-card *ngFor="let item of items | async| orderBy:'title'" (tap)="navigateToDetail(item.id)">
 		<ion-card-header>
 		    <ion-card-title>{{item?.id}}</ion-card-title>
 		</ion-card-header>

@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-	<ion-card *ngFor="let item of items | async" (tap)="navigateToDetail(item.id)">
+	<ion-card *ngFor="let item of items | async | orderBy:'name'" (tap)="navigateToDetail(item.id)">
 		<ion-card-header>
 		    <ion-card-title>{{item?.id}}</ion-card-title>
 		</ion-card-header>
@@ -24,7 +24,7 @@
 			<p>postId: {{item?.postId}}</p>
 			<p>name: {{item?.name}}</p>
 			<p>email: {{item?.email}}</p>
-			<p>body: {{item?.body}}</p>
+			<ion-textarea *ngIf="item?.body" [(ngModel)]="item.body" auto-resize></ion-textarea>
 		</ion-card-content>
 	</ion-card>
 
